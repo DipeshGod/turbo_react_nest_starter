@@ -1,3 +1,4 @@
+import { Button } from 'antd';
 import { useEffect } from 'react';
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
   return (
     <>
       <h1>Hello world</h1>
+      <Button type="primary">Antd Button</Button>
     </>
   );
 }
