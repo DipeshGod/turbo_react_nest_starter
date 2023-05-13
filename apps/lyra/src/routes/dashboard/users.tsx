@@ -1,4 +1,5 @@
-import { Space, Table, Tag, Typography } from 'antd';
+import { PlusOutlined } from '@ant-design/icons';
+import { Button, Row, Space, Table, Tag, Typography } from 'antd';
 import { ColumnsType } from 'antd/es/table';
 
 interface DataType {
@@ -84,7 +85,13 @@ const data: DataType[] = [
 const Users = () => {
   return (
     <div>
-      <Typography.Title level={2}>Users</Typography.Title>
+      <Row justify="space-between" align="middle">
+        <Typography.Title level={2}>Users</Typography.Title>
+        <Button type="primary" icon={<PlusOutlined />}>
+          Add User
+        </Button>
+      </Row>
+
       <div>
         <Table columns={columns} dataSource={data} />;
       </div>
