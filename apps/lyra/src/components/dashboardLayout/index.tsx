@@ -16,9 +16,14 @@ const DashboardLayout = ({ children }: { children: JSX.Element }) => {
     <Layout>
       <Sider
         trigger={null}
-        collapsible
+        // collapsible
         collapsed={collapsed}
+        breakpoint="lg"
+        collapsedWidth="0"
         style={{ height: '100vh' }}
+        onBreakpoint={(broken) => {
+          setCollapsed(broken);
+        }}
       >
         <div style={{ padding: '1rem' }}>
           <img
