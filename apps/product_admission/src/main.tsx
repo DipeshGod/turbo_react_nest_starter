@@ -9,6 +9,10 @@ import {
 } from '@tanstack/router';
 import { Home } from './routes/home.tsx';
 import DashboardHome from './routes/dashboard/index.tsx';
+import DashboardLayout from './components/dashboardLayout/index.tsx';
+import 'antd/dist/reset.css';
+import Leads from './routes/dashboard/leads.tsx';
+import Users from './routes/dashboard/users.tsx';
 
 // Create a root route
 const rootRoute = new RootRoute({
@@ -31,7 +35,9 @@ const dashboardRoute = new Route({
   path: '/dashboard',
   component: () => (
     <div>
-      <Outlet />
+      <DashboardLayout>
+        <Outlet />
+      </DashboardLayout>
     </div>
   ),
 });
@@ -42,10 +48,26 @@ const dashboardIndexRoute = new Route({
   component: DashboardHome,
 });
 
+const dashboarLeadsRoute = new Route({
+  getParentRoute: () => dashboardRoute,
+  path: '/leads',
+  component: Leads,
+});
+
+const dashboardUsersRoute = new Route({
+  getParentRoute: () => dashboardRoute,
+  path: '/users',
+  component: Users,
+});
+
 // Create the route tree using your routes
 const routeTree = rootRoute.addChildren([
   indexRoute,
-  dashboardRoute.addChildren([dashboardIndexRoute]),
+  dashboardRoute.addChildren([
+    dashboardIndexRoute,
+    dashboarLeadsRoute,
+    dashboardUsersRoute,
+  ]),
 ]);
 
 // Create the router using your route tree
