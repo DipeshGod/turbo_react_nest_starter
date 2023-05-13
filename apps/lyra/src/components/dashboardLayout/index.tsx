@@ -57,32 +57,32 @@ const DashboardLayout = ({ children }: { children: JSX.Element }) => {
             </Link>
           </Menu.Item>
           <Menu.Item key={'3'}>
-            <Link to="/dashboard/users">
+            <Link to="/dashboard">
               <SiderButton text="Applications" icon={<FileProtectOutlined />} />
             </Link>
           </Menu.Item>
           <Menu.Item key={'4'}>
-            <Link to="/dashboard/users">
+            <Link to="/dashboard">
               <SiderButton text="Clients" icon={<UserAddOutlined />} />
             </Link>
           </Menu.Item>
           <Menu.Item key={'5'}>
-            <Link to="/dashboard/users">
+            <Link to="/dashboard">
               <SiderButton text="Institutions" icon={<GlobalOutlined />} />
             </Link>
           </Menu.Item>
           <Menu.Item key={'6'}>
-            <Link to="/dashboard/users">
+            <Link to="/dashboard">
               <SiderButton text="Products" icon={<BookOutlined />} />
             </Link>
           </Menu.Item>
           <Menu.Item key={'7'}>
-            <Link to="/dashboard/users">
+            <Link to="/dashboard">
               <SiderButton text="Mails" icon={<MailOutlined />} />
             </Link>
           </Menu.Item>
           <Menu.Item key={'8'}>
-            <Link to="/dashboard/users">
+            <Link to="/dashboard">
               <SiderButton text="Tasks" icon={<ScheduleOutlined />} />
             </Link>
           </Menu.Item>
@@ -110,7 +110,6 @@ const DashboardLayout = ({ children }: { children: JSX.Element }) => {
           style={{
             margin: '24px 16px',
             padding: 24,
-            minHeight: 280,
             background: colorBgContainer,
           }}
         >

@@ -34,11 +34,9 @@ const dashboardRoute = new Route({
   getParentRoute: () => rootRoute,
   path: '/dashboard',
   component: () => (
-    <div>
-      <DashboardLayout>
-        <Outlet />
-      </DashboardLayout>
-    </div>
+    <DashboardLayout>
+      <Outlet />
+    </DashboardLayout>
   ),
 });
 
