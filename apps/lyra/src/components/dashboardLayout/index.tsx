@@ -1,8 +1,21 @@
 import { useState } from 'react';
-import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
+import {
+  BookOutlined,
+  FileProtectOutlined,
+  GitlabOutlined,
+  GlobalOutlined,
+  MailOutlined,
+  MenuFoldOutlined,
+  MenuUnfoldOutlined,
+  OrderedListOutlined,
+  ScheduleOutlined,
+  UserAddOutlined,
+  UserOutlined,
+} from '@ant-design/icons';
 import { Layout, Menu, Button, theme } from 'antd';
 import { Link } from '@tanstack/router';
 import SiderButton from '../ui/SiderButton';
+import { HomeOutlined } from '@ant-design/icons';
 
 const { Header, Sider, Content } = Layout;
 
@@ -16,7 +29,6 @@ const DashboardLayout = ({ children }: { children: JSX.Element }) => {
     <Layout>
       <Sider
         trigger={null}
-        // collapsible
         collapsed={collapsed}
         breakpoint="lg"
         collapsedWidth="0"
@@ -36,17 +48,47 @@ const DashboardLayout = ({ children }: { children: JSX.Element }) => {
         <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
           <Menu.Item key={'1'}>
             <Link to="/dashboard">
-              <SiderButton text="Dashboard" />
+              <SiderButton text="Dashboard" icon={<HomeOutlined />} />
             </Link>
           </Menu.Item>
           <Menu.Item key={'2'}>
             <Link to="/dashboard/leads">
-              <SiderButton text="Leads" />
+              <SiderButton text="Leads" icon={<GitlabOutlined />} />
             </Link>
           </Menu.Item>
           <Menu.Item key={'3'}>
             <Link to="/dashboard/users">
-              <SiderButton text="Users" />
+              <SiderButton text="Applications" icon={<FileProtectOutlined />} />
+            </Link>
+          </Menu.Item>
+          <Menu.Item key={'4'}>
+            <Link to="/dashboard/users">
+              <SiderButton text="Clients" icon={<UserAddOutlined />} />
+            </Link>
+          </Menu.Item>
+          <Menu.Item key={'5'}>
+            <Link to="/dashboard/users">
+              <SiderButton text="Institutions" icon={<GlobalOutlined />} />
+            </Link>
+          </Menu.Item>
+          <Menu.Item key={'6'}>
+            <Link to="/dashboard/users">
+              <SiderButton text="Products" icon={<BookOutlined />} />
+            </Link>
+          </Menu.Item>
+          <Menu.Item key={'7'}>
+            <Link to="/dashboard/users">
+              <SiderButton text="Mails" icon={<MailOutlined />} />
+            </Link>
+          </Menu.Item>
+          <Menu.Item key={'8'}>
+            <Link to="/dashboard/users">
+              <SiderButton text="Tasks" icon={<ScheduleOutlined />} />
+            </Link>
+          </Menu.Item>
+          <Menu.Item key={'9'}>
+            <Link to="/dashboard/users">
+              <SiderButton text="Users" icon={<UserOutlined />} />
             </Link>
           </Menu.Item>
         </Menu>

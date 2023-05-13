@@ -4,14 +4,17 @@
   "description": "",
   "scripts": {
     "dev": "turbo run dev",
-    "build":"turbo run build"
+    "build": "turbo run build"
   },
   "author": "Experts Pvt Ltd",
   "license": "ISC",
   "devDependencies": {
     "turbo": "^1.9.3"
   },
-  "workspaces":[
+  "workspaces": [
     "apps/*"
-  ]
+  ],
+  "dependencies": {
+    "@ant-design/icons": "^5.0.1"
+  }
 }
