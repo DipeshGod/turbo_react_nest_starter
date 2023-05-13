@@ -1,6 +1,16 @@
 import { PlusOutlined } from '@ant-design/icons';
-import { Button, Row, Space, Table, Tag, Typography } from 'antd';
+import {
+  Button,
+  Drawer,
+  Input,
+  Row,
+  Space,
+  Table,
+  Tag,
+  Typography,
+} from 'antd';
 import { ColumnsType } from 'antd/es/table';
+import { useState } from 'react';
 
 interface DataType {
   key: string;
@@ -83,18 +93,36 @@ const data: DataType[] = [
   },
 ];
 const Users = () => {
+  const [open, setOpen] = useState(false);
+
+  const showDrawer = () => {
+    setOpen(true);
+  };
+
+  const onClose = () => {
+    setOpen(false);
+  };
+
   return (
     <div>
       <Row justify="space-between" align="middle">
         <Typography.Title level={2}>Users</Typography.Title>
-        <Button type="primary" icon={<PlusOutlined />}>
+        <Button onClick={showDrawer} type="primary" icon={<PlusOutlined />}>
           Add User
         </Button>
       </Row>
-
       <div>
         <Table columns={columns} dataSource={data} />;
       </div>
+      <Drawer
+        width={600}
+        title="Add User"
+        placement="right"
+        onClose={onClose}
+        open={open}
+      >
+        <Input placeholder="First Name" />
+      </Drawer>
     </div>
   );
 };
