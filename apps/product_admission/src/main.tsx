@@ -1,40 +1,52 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {
-  Link,
   Outlet,
   RootRoute,
   Route,
   Router,
   RouterProvider,
 } from '@tanstack/router';
-import Login from './routes/login.tsx';
-
-function Root() {
-  return (
-    <>
-      <div>
-        <Link to="/">Home</Link>
-      </div>
-      <hr />
-      <Outlet />
-    </>
-  );
-}
+import { Home } from './routes/home.tsx';
+import DashboardHome from './routes/dashboard/index.tsx';
 
 // Create a root route
 const rootRoute = new RootRoute({
-  component: Root,
+  component: () => (
+    <div>
+      <Outlet />
+    </div>
+  ),
 });
 
 const indexRoute = new Route({
   getParentRoute: () => rootRoute,
   path: '/',
-  component: Login,
+  component: Home,
+});
+
+//create a dashboard root route
+const dashboardRoute = new Route({
+  getParentRoute: () => rootRoute,
+  path: '/dashboard',
+  component: () => (
+    <div>
+      <Outlet />
+    </div>
+  ),
+});
+
+const dashboardIndexRoute = new Route({
+  getParentRoute: () => dashboardRoute,
+  path: '/',
+  component: DashboardHome,
 });
 
 // Create the route tree using your routes
-const routeTree = rootRoute.addChildren([indexRoute]);
+const routeTree = rootRoute.addChildren([
+  indexRoute,
+  dashboardRoute.addChildren([dashboardIndexRoute]),
+]);
 
 // Create the router using your route tree
 const router = new Router({ routeTree });
