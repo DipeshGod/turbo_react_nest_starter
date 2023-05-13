@@ -7,7 +7,6 @@ import {
   MailOutlined,
   MenuFoldOutlined,
   MenuUnfoldOutlined,
-  OrderedListOutlined,
   ScheduleOutlined,
   UserAddOutlined,
   UserOutlined,
