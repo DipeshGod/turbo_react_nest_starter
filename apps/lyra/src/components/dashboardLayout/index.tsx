@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
-import { Layout, Menu, Button, theme, Typography } from 'antd';
+import { Layout, Menu, Button, theme } from 'antd';
 import { Link } from '@tanstack/router';
 import SiderButton from '../ui/SiderButton';
 
