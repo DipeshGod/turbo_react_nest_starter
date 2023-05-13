@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
-import { Layout, Menu, Button, theme } from 'antd';
+import { Layout, Menu, Button, theme, Typography } from 'antd';
 import { Link } from '@tanstack/router';
 import SiderButton from '../ui/SiderButton';
 
@@ -20,7 +20,14 @@ const DashboardLayout = ({ children }: { children: JSX.Element }) => {
         collapsed={collapsed}
         style={{ height: '100vh' }}
       >
-        <div className="logo" />
+        <div style={{ padding: '1rem' }}>
+          <img
+            src="/expertsLogo.png"
+            width="100%"
+            height="100%"
+            alt="expertsLogo"
+          />
+        </div>
         <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
           <Menu.Item key={'1'}>
             <Link to="/dashboard">
