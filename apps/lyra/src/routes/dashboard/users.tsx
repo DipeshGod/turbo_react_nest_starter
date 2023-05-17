@@ -1,4 +1,5 @@
 import { PlusOutlined } from '@ant-design/icons';
+import { useQuery } from '@tanstack/react-query';
 import {
   Button,
   Drawer,
@@ -12,7 +13,8 @@ import {
   Typography,
 } from 'antd';
 import { ColumnsType } from 'antd/es/table';
-import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { useState } from 'react';
 
 interface DataType {
   key: string;
@@ -96,16 +98,16 @@ const data: DataType[] = [
 ];
 const Users = () => {
   const [open, setOpen] = useState(false);
+  const { data: usersData } = useQuery({
+    queryKey: ['repoData'],
+    queryFn: async () => (await axios.get('/users')).data,
+  });
+
+  console.log('data', usersData);
 
   const showDrawer = () => {
     setOpen(true);
   };
-
-  useEffect(() => {
-    fetch('/users')
-      .then((res) => res.json())
-      .then((data) => console.log('data', data));
-  }, []);
 
   const onClose = () => {
     setOpen(false);
