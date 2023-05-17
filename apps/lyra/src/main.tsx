@@ -39,11 +39,7 @@ const indexRoute = new Route({
 const dashboardRoute = new Route({
   getParentRoute: () => rootRoute,
   path: '/dashboard',
-  component: () => (
-    <DashboardLayout>
-      <Outlet />
-    </DashboardLayout>
-  ),
+  component: () => <DashboardLayout />,
 });
 
 const dashboardIndexRoute = new Route({

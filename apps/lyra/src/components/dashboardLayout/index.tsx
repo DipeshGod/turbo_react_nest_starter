@@ -12,13 +12,13 @@ import {
   UserOutlined,
 } from '@ant-design/icons';
 import { Layout, Menu, Button, theme } from 'antd';
-import { Link } from '@tanstack/router';
+import { Link, Outlet } from '@tanstack/router';
 import SiderButton from '../ui/SiderButton';
 import { HomeOutlined } from '@ant-design/icons';
 
 const { Header, Sider, Content } = Layout;
 
-const DashboardLayout = ({ children }: { children: JSX.Element }) => {
+const DashboardLayout = () => {
   const [collapsed, setCollapsed] = useState(false);
   const {
     token: { colorBgContainer },
@@ -112,7 +112,7 @@ const DashboardLayout = ({ children }: { children: JSX.Element }) => {
             background: colorBgContainer,
           }}
         >
-          {children}
+          <Outlet />
         </Content>
       </Layout>
     </Layout>
