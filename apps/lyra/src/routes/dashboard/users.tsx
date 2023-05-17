@@ -99,9 +99,14 @@ const data: DataType[] = [
 ];
 const Users = () => {
   const [open, setOpen] = useState(false);
-  const { data: roles, isLoading } = useQuery({
+  const { data: roles, isLoading: isLoadingRoles } = useQuery({
     queryKey: ['roles'],
     queryFn: async () => (await axios.get('/auth/roles')).data,
+    enabled: open,
+  });
+  const { data: branches, isLoading: isLoadingBranches } = useQuery({
+    queryKey: ['branches'],
+    queryFn: async () => (await axios.get('/office/branches')).data,
     enabled: open,
   });
 
@@ -131,7 +136,7 @@ const Users = () => {
         onClose={onClose}
         open={open}
       >
-        <Spin spinning={isLoading}>
+        <Spin spinning={isLoadingRoles || isLoadingBranches}>
           <Form
             name="userForm"
             onFinish={(values) => {
@@ -163,14 +168,11 @@ const Users = () => {
                 </Form.Item>
                 <Form.Item label="Branch" name="branch">
                   <Select showSearch placeholder="Select Branch">
-                    <Select.Option value="putalisadak">
-                      Putalisadak
-                    </Select.Option>
-                    <Select.Option value="maharajgunj">
-                      Maharajgunj
-                    </Select.Option>
-                    <Select.Option value="chitwan">Chitwan</Select.Option>
-                    <Select.Option value="biratnagar">Biratnagar</Select.Option>
+                    {branches?.map((branch: any) => (
+                      <Select.Option key={branch.id} value={branch.id}>
+                        {branch.name}
+                      </Select.Option>
+                    ))}
                   </Select>
                 </Form.Item>
               </div>
