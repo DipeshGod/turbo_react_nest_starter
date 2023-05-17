@@ -12,7 +12,7 @@ import {
   Typography,
 } from 'antd';
 import { ColumnsType } from 'antd/es/table';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 interface DataType {
   key: string;
@@ -100,6 +100,12 @@ const Users = () => {
   const showDrawer = () => {
     setOpen(true);
   };
+
+  useEffect(() => {
+    fetch('/users')
+      .then((res) => res.json())
+      .then((data) => console.log('data', data));
+  }, []);
 
   const onClose = () => {
     setOpen(false);

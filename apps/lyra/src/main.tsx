@@ -14,6 +14,11 @@ import 'antd/dist/reset.css';
 import Leads from './routes/dashboard/leads.tsx';
 import Users from './routes/dashboard/users.tsx';
 
+if (process.env.NODE_ENV === 'development') {
+  const { worker } = await import('../mocks/browser.ts');
+  worker.start();
+}
+
 // Create a root route
 const rootRoute = new RootRoute({
   component: () => (
