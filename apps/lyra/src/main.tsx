@@ -13,11 +13,7 @@ import DashboardLayout from './components/dashboardLayout/index.tsx';
 import 'antd/dist/reset.css';
 import Leads from './routes/dashboard/leads.tsx';
 import Users from './routes/dashboard/users.tsx';
-import {
-  QueryClient,
-  QueryClientProvider,
-  useQuery,
-} from '@tanstack/react-query';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 if (process.env.NODE_ENV === 'development') {
   const { worker } = await import('../mocks/browser.ts');
