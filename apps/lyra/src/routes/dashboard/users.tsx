@@ -8,6 +8,7 @@ import {
   Row,
   Select,
   Space,
+  Spin,
   Table,
   Tag,
   Typography,
@@ -98,12 +99,11 @@ const data: DataType[] = [
 ];
 const Users = () => {
   const [open, setOpen] = useState(false);
-  const { data: usersData } = useQuery({
-    queryKey: ['repoData'],
-    queryFn: async () => (await axios.get('/users')).data,
+  const { data: roles, isLoading } = useQuery({
+    queryKey: ['roles'],
+    queryFn: async () => (await axios.get('/auth/roles')).data,
+    enabled: open,
   });
-
-  console.log('data', usersData);
 
   const showDrawer = () => {
     setOpen(true);
@@ -131,55 +131,58 @@ const Users = () => {
         onClose={onClose}
         open={open}
       >
-        <Form
-          name="userForm"
-          onFinish={(values) => {
-            console.log('values', values);
-          }}
-        >
-          <Row style={{ flexDirection: 'column' }}>
-            <div style={{ minHeight: '85vh' }}>
-              <Row justify="space-between">
-                <Form.Item label="First Name" name="firstName">
-                  <Input placeholder="Johan" />
+        <Spin spinning={isLoading}>
+          <Form
+            name="userForm"
+            onFinish={(values) => {
+              console.log('values', values);
+            }}
+          >
+            <Row style={{ flexDirection: 'column' }}>
+              <div style={{ minHeight: '85vh' }}>
+                <Row justify="space-between">
+                  <Form.Item label="First Name" name="firstName">
+                    <Input placeholder="Johan" />
+                  </Form.Item>
+                  <Form.Item label="Last Name" name="lastName">
+                    <Input placeholder="Liebert" />
+                  </Form.Item>
+                </Row>
+                <Form.Item label="Email" name="email">
+                  <Input placeholder="john@email.com" />
                 </Form.Item>
-                <Form.Item label="Last Name" name="lastName">
-                  <Input placeholder="Liebert" />
-                </Form.Item>
-              </Row>
-              <Form.Item label="Email" name="email">
-                <Input placeholder="john@email.com" />
-              </Form.Item>
 
-              <Form.Item label="Role" name="role">
-                <Select placeholder="Select Role" defaultValue="manager">
-                  <Select.Option value="admin">Admin</Select.Option>
-                  <Select.Option value="manager">Manager</Select.Option>
-                  <Select.Option value="admissionOfficer">
-                    Admission Officer
-                  </Select.Option>
-                  <Select.Option value="counsellor">Counsellor</Select.Option>
-                </Select>
-              </Form.Item>
-              <Form.Item label="Branch" name="branch">
-                <Select showSearch placeholder="Select Branch">
-                  <Select.Option value="putalisadak">Putalisadak</Select.Option>
-                  <Select.Option value="maharajgunj">Maharajgunj</Select.Option>
-                  <Select.Option value="chitwan">Chitwan</Select.Option>
-                  <Select.Option value="biratnagar">Biratnagar</Select.Option>
-                </Select>
-              </Form.Item>
-            </div>
-            <Row>
-              <Space>
-                <Button onClick={() => setOpen(false)}>Cancel</Button>
-                <Button htmlType="submit" type="primary">
-                  Save
-                </Button>
-              </Space>
+                <Form.Item label="Role" name="role">
+                  <Select placeholder="Select Role" defaultValue="2">
+                    {roles?.map((role: any) => (
+                      <Select.Option value={role.id}>{role.name}</Select.Option>
+                    ))}
+                  </Select>
+                </Form.Item>
+                <Form.Item label="Branch" name="branch">
+                  <Select showSearch placeholder="Select Branch">
+                    <Select.Option value="putalisadak">
+                      Putalisadak
+                    </Select.Option>
+                    <Select.Option value="maharajgunj">
+                      Maharajgunj
+                    </Select.Option>
+                    <Select.Option value="chitwan">Chitwan</Select.Option>
+                    <Select.Option value="biratnagar">Biratnagar</Select.Option>
+                  </Select>
+                </Form.Item>
+              </div>
+              <Row>
+                <Space>
+                  <Button onClick={() => setOpen(false)}>Cancel</Button>
+                  <Button htmlType="submit" type="primary">
+                    Save
+                  </Button>
+                </Space>
+              </Row>
             </Row>
-          </Row>
-        </Form>
+          </Form>
+        </Spin>
       </Drawer>
     </div>
   );
