@@ -16,5 +16,8 @@
   ],
   "dependencies": {
     "@ant-design/icons": "^5.0.1"
+  },
+  "msw": {
+    "workerDirectory": "lyra\\public"
   }
 }
