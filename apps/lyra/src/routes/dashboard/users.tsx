@@ -155,7 +155,9 @@ const Users = () => {
                 <Form.Item label="Role" name="role">
                   <Select placeholder="Select Role" defaultValue="2">
                     {roles?.map((role: any) => (
-                      <Select.Option value={role.id}>{role.name}</Select.Option>
+                      <Select.Option key={role.id} value={role.id}>
+                        {role.name}
+                      </Select.Option>
                     ))}
                   </Select>
                 </Form.Item>
