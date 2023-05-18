@@ -34,12 +34,17 @@ const DashboardLayout = () => {
           setCollapsed(broken);
         }}
       >
-        <div style={{ padding: '1rem' }}>
+        <div style={{ padding: '1rem',  display: 'flex',
+              justifyContent: 'center',
+             }}>
           <img
-            src="/expertsLogo.png"
-            width="100%"
-            height="100%"
+            src="/haddi.jpg"
+            width="50%"
+            height="50%"
             alt="expertsLogo"
+            style={{
+              borderRadius: '50%',  
+            }}
           />
         </div>
         <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
