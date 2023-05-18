@@ -127,7 +127,7 @@ const Users = () => {
         </Button>
       </Row>
       <div>
-        <Table columns={columns} dataSource={data} />;
+        <Table columns={columns} dataSource={data} />
       </div>
       <Drawer
         width={600}
