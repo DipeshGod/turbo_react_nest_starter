@@ -30,11 +30,7 @@ const router = createBrowserRouter([
     element: <AuthWrapper component={<DashboardLayout />} />,
     children: [
       {
-        element: <Navigate to="/home" />,
-      },
-      {
         index: true,
-        path: 'home',
         element: (
           <Suspense fallback="loading...">
             <DashboardHome />
