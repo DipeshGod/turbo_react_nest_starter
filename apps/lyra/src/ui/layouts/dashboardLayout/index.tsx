@@ -12,7 +12,7 @@ import {
   UserOutlined,
 } from '@ant-design/icons';
 import { Layout, Menu, Button, theme, Row } from 'antd';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, NavLink, Outlet } from 'react-router-dom';
 import SiderButton from '../../components/SiderButton';
 import { HomeOutlined } from '@ant-design/icons';
 
@@ -22,7 +22,7 @@ const DashboardLayout = () => {
   const [collapsed, setCollapsed] = useState(false);
 
   const {
-    token: { colorBgContainer },
+    token: { colorBgContainer, blue10 },
   } = theme.useToken();
 
   const logoutUser = () => {
@@ -32,6 +32,7 @@ const DashboardLayout = () => {
   return (
     <Layout hasSider={true}>
       <Sider
+        trigger={null}
         collapsed={collapsed}
         breakpoint="lg"
         collapsedWidth="0"
@@ -57,51 +58,114 @@ const DashboardLayout = () => {
             }}
           />
         </div>
-        <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
-          <Menu.Item key={'1'}>
-            <Link to="/">
-              <SiderButton text="Dashboard" icon={<HomeOutlined />} />
-            </Link>
+        <Menu theme="dark" mode="inline">
+          <Menu.Item key={'1'} style={{ backgroundColor: 'transparent' }}>
+            <NavLink to="/">
+              {({ isActive, isPending }) => (
+                <SiderButton
+                  isActive={isActive}
+                  isPending={isPending}
+                  text="Dashboard"
+                  icon={<HomeOutlined />}
+                />
+              )}
+            </NavLink>
           </Menu.Item>
-          <Menu.Item key={'2'}>
-            <Link to="/contacts">
-              <SiderButton text="Contacts" icon={<GitlabOutlined />} />
-            </Link>
+          <Menu.Item key={'2'} style={{ backgroundColor: 'transparent' }}>
+            <NavLink to="/contacts">
+              {({ isActive, isPending }) => (
+                <SiderButton
+                  isActive={isActive}
+                  isPending={isPending}
+                  text="Contacts"
+                  icon={<GitlabOutlined />}
+                />
+              )}
+            </NavLink>
           </Menu.Item>
-          <Menu.Item key={'3'}>
-            <Link to="/applications">
-              <SiderButton text="Applications" icon={<FileProtectOutlined />} />
-            </Link>
+          <Menu.Item key={'3'} style={{ backgroundColor: 'transparent' }}>
+            <NavLink to="/applications">
+              {({ isActive, isPending }) => (
+                <SiderButton
+                  isActive={isActive}
+                  isPending={isPending}
+                  text="Applications"
+                  icon={<FileProtectOutlined />}
+                />
+              )}
+            </NavLink>
           </Menu.Item>
-          <Menu.Item key={'4'}>
-            <Link to="/clients">
-              <SiderButton text="Clients" icon={<UserAddOutlined />} />
-            </Link>
+          <Menu.Item key={'4'} style={{ backgroundColor: 'transparent' }}>
+            <NavLink to="/clients">
+              {({ isActive, isPending }) => (
+                <SiderButton
+                  isActive={isActive}
+                  isPending={isPending}
+                  text="Clients"
+                  icon={<UserAddOutlined />}
+                />
+              )}
+            </NavLink>
           </Menu.Item>
-          <Menu.Item key={'5'}>
-            <Link to="/institutions">
-              <SiderButton text="Institutions" icon={<GlobalOutlined />} />
-            </Link>
+          <Menu.Item key={'5'} style={{ backgroundColor: 'transparent' }}>
+            <NavLink to="/institutions">
+              {({ isActive, isPending }) => (
+                <SiderButton
+                  isActive={isActive}
+                  isPending={isPending}
+                  text="Institutions"
+                  icon={<GlobalOutlined />}
+                />
+              )}
+            </NavLink>
           </Menu.Item>
-          <Menu.Item key={'6'}>
-            <Link to="/products">
-              <SiderButton text="Products" icon={<BookOutlined />} />
-            </Link>
+          <Menu.Item key={'6'} style={{ backgroundColor: 'transparent' }}>
+            <NavLink to="/products">
+              {({ isActive, isPending }) => (
+                <SiderButton
+                  isActive={isActive}
+                  isPending={isPending}
+                  text="Products"
+                  icon={<BookOutlined />}
+                />
+              )}
+            </NavLink>
           </Menu.Item>
-          <Menu.Item key={'7'}>
-            <Link to="/mails">
-              <SiderButton text="Mails" icon={<MailOutlined />} />
-            </Link>
+          <Menu.Item key={'7'} style={{ backgroundColor: 'transparent' }}>
+            <NavLink to="/mails">
+              {({ isActive, isPending }) => (
+                <SiderButton
+                  isActive={isActive}
+                  isPending={isPending}
+                  text="Mails"
+                  icon={<MailOutlined />}
+                />
+              )}
+            </NavLink>
           </Menu.Item>
-          <Menu.Item key={'8'}>
-            <Link to="/tasks">
-              <SiderButton text="Tasks" icon={<ScheduleOutlined />} />
-            </Link>
+          <Menu.Item key={'8'} style={{ backgroundColor: 'transparent' }}>
+            <NavLink to="/tasks">
+              {({ isActive, isPending }) => (
+                <SiderButton
+                  isActive={isActive}
+                  isPending={isPending}
+                  text="Tasks"
+                  icon={<ScheduleOutlined />}
+                />
+              )}
+            </NavLink>
           </Menu.Item>
-          <Menu.Item key={'9'}>
-            <Link to="/users">
-              <SiderButton text="Users" icon={<UserOutlined />} />
-            </Link>
+          <Menu.Item key={'9'} style={{ backgroundColor: 'transparent' }}>
+            <NavLink to="/users">
+              {({ isActive, isPending }) => (
+                <SiderButton
+                  isActive={isActive}
+                  isPending={isPending}
+                  text="Users"
+                  icon={<UserOutlined />}
+                />
+              )}
+            </NavLink>
           </Menu.Item>
         </Menu>
       </Sider>
