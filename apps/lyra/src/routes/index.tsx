@@ -15,6 +15,7 @@ import { DashboardLayout } from '../ui/layouts';
 import { NotFound } from '../pages/404';
 import { Suspense } from 'react';
 import Mails from '../pages/dashboard/mails';
+import { Skeleton } from 'antd';
 
 const router = createBrowserRouter([
   {
@@ -28,7 +29,7 @@ const router = createBrowserRouter([
       {
         index: true,
         element: (
-          <Suspense fallback="loading...">
+          <Suspense fallback={<Skeleton />}>
             <DashboardHome />
           </Suspense>
         ),
@@ -36,7 +37,7 @@ const router = createBrowserRouter([
       {
         path: 'contacts',
         element: (
-          <Suspense fallback="loading...">
+          <Suspense fallback={<Skeleton />}>
             <Contacts />
           </Suspense>
         ),
@@ -44,7 +45,7 @@ const router = createBrowserRouter([
       {
         path: '/applications',
         element: (
-          <Suspense fallback="loading...">
+          <Suspense fallback={<Skeleton />}>
             <Applications />
           </Suspense>
         ),
@@ -52,7 +53,7 @@ const router = createBrowserRouter([
       {
         path: '/clients',
         element: (
-          <Suspense fallback="loading...">
+          <Suspense fallback={<Skeleton />}>
             <Clients />
           </Suspense>
         ),
@@ -60,7 +61,7 @@ const router = createBrowserRouter([
       {
         path: '/institutions',
         element: (
-          <Suspense fallback="loading...">
+          <Suspense fallback={<Skeleton />}>
             <Institutions />
           </Suspense>
         ),
@@ -68,7 +69,7 @@ const router = createBrowserRouter([
       {
         path: '/products',
         element: (
-          <Suspense fallback="loading...">
+          <Suspense fallback={<Skeleton />}>
             <Products />
           </Suspense>
         ),
@@ -76,7 +77,7 @@ const router = createBrowserRouter([
       {
         path: '/mails',
         element: (
-          <Suspense fallback="loading...">
+          <Suspense fallback={<Skeleton />}>
             <Mails />
           </Suspense>
         ),
@@ -84,7 +85,7 @@ const router = createBrowserRouter([
       {
         path: '/tasks',
         element: (
-          <Suspense fallback="loading...">
+          <Suspense fallback={<Skeleton />}>
             <Tasks />
           </Suspense>
         ),
@@ -92,7 +93,7 @@ const router = createBrowserRouter([
       {
         path: 'users',
         element: (
-          <Suspense fallback="loading...">
+          <Suspense fallback={<Skeleton />}>
             <Users />
           </Suspense>
         ),
