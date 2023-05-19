@@ -14,6 +14,9 @@ const { Header, Sider, Content } = Layout;
 
 const DashboardLayout = () => {
   const [collapsed, setCollapsed] = useState(false);
+
+  // if()
+
   const {
     token: { colorBgContainer },
   } = theme.useToken();
@@ -23,9 +26,11 @@ const DashboardLayout = () => {
   }
 
   return (
-    <Layout>
+    <Layout
+      hasSider={true}
+    >
       <Sider
-        trigger={null}
+        // trigger={null}
         collapsed={collapsed}
         breakpoint="lg"
         collapsedWidth="0"
@@ -34,16 +39,17 @@ const DashboardLayout = () => {
           setCollapsed(broken);
         }}
       >
-        <div style={{ padding: '1rem',  display: 'flex',
-              justifyContent: 'center',
-             }}>
+        <div style={{
+          padding: '1rem', display: 'flex',
+          justifyContent: 'center',
+        }}>
           <img
             src="/haddi.jpg"
             width="50%"
             height="50%"
             alt="expertsLogo"
             style={{
-              borderRadius: '50%',  
+              borderRadius: '50%',
             }}
           />
         </div>
@@ -82,7 +88,7 @@ const DashboardLayout = () => {
               <Button
                 onClick={logoutUser}
                 type="primary"
-                style={{marginRight: '1rem'}}
+                style={{ marginRight: '1rem' }}
               >
                 Sign Out
               </Button>

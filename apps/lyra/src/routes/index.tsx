@@ -1,12 +1,14 @@
 import {
   createBrowserRouter,
+  Navigate,
   RouterProvider,
 } from "react-router-dom";
 import { Login } from "../pages/auth/login";
-import { AuthWrapper, PublicWrapper, DefaultWrapper } from "./wrapper";
+import { AuthWrapper, PublicWrapper } from "./wrapper";
 import { DashboardHome, Leads, Users } from "../pages";
 import { DashboardLayout } from "../ui/layouts";
 import { NotFound } from "../pages/404";
+import { Suspense } from "react";
 
 const router = createBrowserRouter([
   {
@@ -15,23 +17,23 @@ const router = createBrowserRouter([
   },
   {
     path: "/",
-    element: <DefaultWrapper />
-  },
-  {
     element: <AuthWrapper component={<DashboardLayout />} />,
     children: [
       {
         index: true,
-        path: "dashboard",
-        element: <DashboardHome />,
+        element: <Navigate to='/home' replace={true} />
+      },
+      {
+        path: "home",
+        element: <Suspense fallback="loading..."><DashboardHome /></Suspense>,
       },
       {
         path: "leads",
-        element: <Leads />,
+        element:  <Suspense fallback="loading..."><Leads /></Suspense>,
       },
       {
         path: "users",
-        element: <Users />,
+        element: <Suspense fallback="loading..."><Users /></Suspense>,
       }
     ]
   },
