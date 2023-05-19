@@ -1,21 +1,9 @@
 import { PlusOutlined } from '@ant-design/icons';
-import { useQuery } from '@tanstack/react-query';
-import {
-  Button,
-  Drawer,
-  Form,
-  Input,
-  Row,
-  Select,
-  Space,
-  Spin,
-  Table,
-  Tag,
-  Typography,
-} from 'antd';
+import { Button, Row, Space, Table, Tag, Typography } from 'antd';
 import { ColumnsType } from 'antd/es/table';
-import axios from 'axios';
-import { useState } from 'react';
+import { isDrawerOpen, setIsDrawerOpen } from './user.atoms';
+import { useAtom } from 'jotai';
+import UserDrawer from './UserDrawer';
 
 interface DataType {
   key: string;
@@ -98,96 +86,25 @@ const data: DataType[] = [
   },
 ];
 const Users = () => {
-  const [open, setOpen] = useState(false);
-  const { data: roles, isLoading: isLoadingRoles } = useQuery({
-    queryKey: ['roles'],
-    queryFn: async () => (await axios.get('/auth/roles')).data,
-    enabled: open,
-  });
-  const { data: branches, isLoading: isLoadingBranches } = useQuery({
-    queryKey: ['branches'],
-    queryFn: async () => (await axios.get('/office/branches')).data,
-    enabled: open,
-  });
-
-  const showDrawer = () => {
-    setOpen(true);
-  };
-
-  const onClose = () => {
-    setOpen(false);
-  };
+  const [isOpen] = useAtom(isDrawerOpen);
+  const [, setIsOpen] = useAtom(setIsDrawerOpen);
 
   return (
     <div>
       <Row justify="space-between" align="middle">
         <Typography.Title level={2}>Users</Typography.Title>
-        <Button onClick={showDrawer} type="primary" icon={<PlusOutlined />}>
+        <Button
+          onClick={() => setIsOpen(true)}
+          type="primary"
+          icon={<PlusOutlined />}
+        >
           Add User
         </Button>
       </Row>
       <div>
         <Table columns={columns} dataSource={data} />
       </div>
-      <Drawer
-        width={600}
-        title="Add User"
-        placement="right"
-        onClose={onClose}
-        open={open}
-      >
-        <Spin spinning={isLoadingRoles || isLoadingBranches}>
-          <Form
-            name="userForm"
-            onFinish={(values) => {
-              console.log('values', values);
-            }}
-          >
-            <Row style={{ flexDirection: 'column' }}>
-              <div style={{ minHeight: '85vh' }}>
-                <Row justify="space-between">
-                  <Form.Item label="First Name" name="firstName">
-                    <Input placeholder="Johan" />
-                  </Form.Item>
-                  <Form.Item label="Last Name" name="lastName">
-                    <Input placeholder="Liebert" />
-                  </Form.Item>
-                </Row>
-                <Form.Item label="Email" name="email">
-                  <Input placeholder="john@email.com" />
-                </Form.Item>
-
-                <Form.Item label="Role" name="role">
-                  <Select placeholder="Select Role" defaultValue="2">
-                    {roles?.map((role: any) => (
-                      <Select.Option key={role.id} value={role.id}>
-                        {role.name}
-                      </Select.Option>
-                    ))}
-                  </Select>
-                </Form.Item>
-                <Form.Item label="Branch" name="branch">
-                  <Select showSearch placeholder="Select Branch">
-                    {branches?.map((branch: any) => (
-                      <Select.Option key={branch.id} value={branch.id}>
-                        {branch.name}
-                      </Select.Option>
-                    ))}
-                  </Select>
-                </Form.Item>
-              </div>
-              <Row>
-                <Space>
-                  <Button onClick={() => setOpen(false)}>Cancel</Button>
-                  <Button htmlType="submit" type="primary">
-                    Save
-                  </Button>
-                </Space>
-              </Row>
-            </Row>
-          </Form>
-        </Spin>
-      </Drawer>
+      <UserDrawer />
     </div>
   );
 };
