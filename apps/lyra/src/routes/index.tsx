@@ -1,8 +1,4 @@
-import {
-  createBrowserRouter,
-  Navigate,
-  RouterProvider,
-} from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Login } from '../pages/auth/login';
 import { AuthWrapper, PublicWrapper } from './wrapper';
 import {
