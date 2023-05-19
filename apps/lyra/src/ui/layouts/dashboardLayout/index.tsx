@@ -1,9 +1,15 @@
 import { useState } from 'react';
 import {
+  BookOutlined,
   FileProtectOutlined,
   GitlabOutlined,
+  GlobalOutlined,
+  MailOutlined,
   MenuFoldOutlined,
   MenuUnfoldOutlined,
+  ScheduleOutlined,
+  UserAddOutlined,
+  UserOutlined,
 } from '@ant-design/icons';
 import { Layout, Menu, Button, theme, Row } from 'antd';
 import { Link, Outlet } from 'react-router-dom';
@@ -15,22 +21,17 @@ const { Header, Sider, Content } = Layout;
 const DashboardLayout = () => {
   const [collapsed, setCollapsed] = useState(false);
 
-  // if()
-
   const {
     token: { colorBgContainer },
   } = theme.useToken();
 
   const logoutUser = () => {
-    localStorage.removeItem("jwt_token");
-  }
+    localStorage.removeItem('jwt_token');
+  };
 
   return (
-    <Layout
-      hasSider={true}
-    >
+    <Layout hasSider={true}>
       <Sider
-        // trigger={null}
         collapsed={collapsed}
         breakpoint="lg"
         collapsedWidth="0"
@@ -39,10 +40,13 @@ const DashboardLayout = () => {
           setCollapsed(broken);
         }}
       >
-        <div style={{
-          padding: '1rem', display: 'flex',
-          justifyContent: 'center',
-        }}>
+        <div
+          style={{
+            padding: '1rem',
+            display: 'flex',
+            justifyContent: 'center',
+          }}
+        >
           <img
             src="/haddi.jpg"
             width="50%"
@@ -60,13 +64,43 @@ const DashboardLayout = () => {
             </Link>
           </Menu.Item>
           <Menu.Item key={'2'}>
-            <Link to="/leads">
-              <SiderButton text="Leads" icon={<GitlabOutlined />} />
+            <Link to="/contacts">
+              <SiderButton text="Contacts" icon={<GitlabOutlined />} />
             </Link>
           </Menu.Item>
           <Menu.Item key={'3'}>
+            <Link to="/applications">
+              <SiderButton text="Applications" icon={<FileProtectOutlined />} />
+            </Link>
+          </Menu.Item>
+          <Menu.Item key={'4'}>
+            <Link to="/clients">
+              <SiderButton text="Clients" icon={<UserAddOutlined />} />
+            </Link>
+          </Menu.Item>
+          <Menu.Item key={'5'}>
+            <Link to="/institutions">
+              <SiderButton text="Institutions" icon={<GlobalOutlined />} />
+            </Link>
+          </Menu.Item>
+          <Menu.Item key={'6'}>
+            <Link to="/products">
+              <SiderButton text="Products" icon={<BookOutlined />} />
+            </Link>
+          </Menu.Item>
+          <Menu.Item key={'7'}>
+            <Link to="/mails">
+              <SiderButton text="Mails" icon={<MailOutlined />} />
+            </Link>
+          </Menu.Item>
+          <Menu.Item key={'8'}>
+            <Link to="/tasks">
+              <SiderButton text="Tasks" icon={<ScheduleOutlined />} />
+            </Link>
+          </Menu.Item>
+          <Menu.Item key={'9'}>
             <Link to="/users">
-              <SiderButton text="Users" icon={<FileProtectOutlined />} />
+              <SiderButton text="Users" icon={<UserOutlined />} />
             </Link>
           </Menu.Item>
         </Menu>
