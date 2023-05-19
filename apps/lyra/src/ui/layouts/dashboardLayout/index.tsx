@@ -22,7 +22,7 @@ const DashboardLayout = () => {
   const [collapsed, setCollapsed] = useState(false);
 
   const {
-    token: { colorBgContainer, blue10 },
+    token: { colorBgContainer },
   } = theme.useToken();
 
   const logoutUser = () => {
