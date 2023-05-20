@@ -1,7 +1,7 @@
 import { PlusOutlined } from '@ant-design/icons';
 import { Button, Row, Space, Table, Tag, Typography } from 'antd';
 import { ColumnsType } from 'antd/es/table';
-import { isDrawerOpen, setIsDrawerOpen } from './user.atoms';
+import { setIsDrawerOpen } from './user.atoms';
 import { useAtom } from 'jotai';
 import UserDrawer from './UserDrawer';
 
@@ -86,7 +86,6 @@ const data: DataType[] = [
   },
 ];
 const Users = () => {
-  const [isOpen] = useAtom(isDrawerOpen);
   const [, setIsOpen] = useAtom(setIsDrawerOpen);
 
   return (
