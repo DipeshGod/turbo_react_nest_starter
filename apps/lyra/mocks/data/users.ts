@@ -1,0 +1,67 @@
+export const users = [
+  {
+    id: '524844ce-5d5e-445f-8598-9d539fbcfa9f',
+    name: 'Kenzo Tenma',
+    email: 'kenzotenma@monster.com',
+    mobileNumber: '9779843253431',
+    address: {
+      country: 'Japan',
+      city: 'Tokyo',
+      location: 'Arakawa-ku',
+    },
+    role: 'manager',
+    status: 'active',
+  },
+  {
+    id: 'f3e885a1-9876-4d15-b85a-72c8258eb29d',
+    name: 'Lelouch Lamperouge',
+    email: 'lelouch@blackknight.com',
+    mobileNumber: '9779845678901',
+    address: {
+      country: 'Japan',
+      city: 'Tokyo',
+      location: 'Shinjuku',
+    },
+    role: 'administrator',
+    status: 'active',
+  },
+  {
+    id: '76bc6e5e-38b2-4dc1-b839-60fcfcf4b5f8',
+    name: 'Light Yagami',
+    email: 'light@justice.com',
+    mobileNumber: '9779865432109',
+    address: {
+      country: 'Japan',
+      city: 'Tokyo',
+      location: 'Shibuya',
+    },
+    role: 'user',
+    status: 'inactive',
+  },
+  {
+    id: 'aeb0f68c-180b-4f9c-a5b4-ee80bca13f84',
+    name: 'Spike Spiegel',
+    email: 'spike@bebop.com',
+    mobileNumber: '9779843765490',
+    address: {
+      country: 'United States',
+      city: 'New York',
+      location: 'Brooklyn',
+    },
+    role: 'user',
+    status: 'active',
+  },
+  {
+    id: '5c91a14a-897b-4bc7-98b3-13f1d2c454c2',
+    name: 'Motoko Kusanagi',
+    email: 'motoko@section9.com',
+    mobileNumber: '9779812345678',
+    address: {
+      country: 'Japan',
+      city: 'Tokyo',
+      location: 'Chiyoda',
+    },
+    role: 'admin',
+    status: 'active',
+  },
+];

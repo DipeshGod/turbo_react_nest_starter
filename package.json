@@ -9,7 +9,7 @@
   "author": "Experts Pvt Ltd",
   "license": "ISC",
   "devDependencies": {
-    "turbo": "^1.9.3"
+    "turbo": "^1.9.8"
   },
   "workspaces": [
     "apps/*"
