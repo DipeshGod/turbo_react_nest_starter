@@ -2,9 +2,9 @@ import { PlusOutlined } from '@ant-design/icons';
 import { Button, Row, Table, Typography } from 'antd';
 import { setIsDrawerOpen } from './user.atoms';
 import { useAtom } from 'jotai';
-import UserDrawer from './UserDrawer';
-import { useGetUsers } from './useGetUsers';
-import { columns } from './userColumns';
+import UserDrawer from './components/UserDrawer';
+import { useGetUsers } from './hooks/useGetUsers';
+import { columns } from './components/userColumns';
 
 const Users = () => {
   const [, setIsOpen] = useAtom(setIsDrawerOpen);

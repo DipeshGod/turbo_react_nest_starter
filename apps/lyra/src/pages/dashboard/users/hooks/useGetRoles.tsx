@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import { useAtom } from 'jotai';
-import { isDrawerOpen } from './user.atoms';
+import { isDrawerOpen } from '../user.atoms';
 
 export const useGetRoles = () => {
   const [isOpen] = useAtom(isDrawerOpen);
