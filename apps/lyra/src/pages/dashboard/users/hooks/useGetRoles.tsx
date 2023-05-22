@@ -9,6 +9,7 @@ export const useGetRoles = () => {
     queryKey: ['roles'],
     queryFn: async () => (await axios.get('/auth/roles')).data,
     enabled: isOpen,
+    suspense: true,
   });
 
   return { roles, isLoadingRoles };

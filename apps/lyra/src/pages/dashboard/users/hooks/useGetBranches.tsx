@@ -9,6 +9,7 @@ export const useGetBranches = () => {
     queryKey: ['branches'],
     queryFn: async () => (await axios.get('/office/branches')).data,
     enabled: isOpen,
+    suspense: true,
   });
 
   return { branches, isLoadingBranches };
