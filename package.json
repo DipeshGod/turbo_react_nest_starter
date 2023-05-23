@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "dev": "turbo run dev",
+    "dev": "turbo run dev --no-daemon",
     "build": "turbo run build"
   },
   "author": "Experts Pvt Ltd",
