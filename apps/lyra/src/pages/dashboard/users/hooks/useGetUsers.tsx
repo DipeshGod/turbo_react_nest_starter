@@ -5,7 +5,6 @@ export const useGetUsers = () => {
   const { data: users, isLoading: isLoadingUsers } = useQuery({
     queryKey: ['users'],
     queryFn: async () => (await axios.get('/users')).data,
-    suspense: true,
   });
 
   return { users, isLoadingUsers };
