@@ -50,6 +50,7 @@ const Users = () => {
       />
       <div>
         <Table
+          scroll={{ x: '100%' }}
           loading={isLoadingUsers}
           columns={columns}
           dataSource={users?.data.paginatedUsers}
