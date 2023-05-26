@@ -1,5 +1,5 @@
 import { ColumnsType } from 'antd/es/table';
-import { Tag } from '../../../../ui/antd';
+import { Tag, Typography } from '../../../../ui/antd';
 
 interface User {
   id: string;
@@ -50,6 +50,7 @@ export const columns: ColumnsType<User> = [
     title: 'Role',
     dataIndex: 'role',
     key: 'role',
+    render: (role) => <Typography.Text>{role.toUpperCase()}</Typography.Text>,
   },
   {
     title: 'Status',
