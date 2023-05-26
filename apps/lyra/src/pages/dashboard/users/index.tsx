@@ -1,5 +1,5 @@
 import { PlusOutlined } from '@ant-design/icons';
-import { Button, Pagination, Row, Table, Typography } from 'antd';
+import { Button, Input, Pagination, Row, Table, Typography } from 'antd';
 import { setIsDrawerOpen } from './user.atoms';
 import { useAtom } from 'jotai';
 import UserDrawer from './components/UserDrawer';
@@ -7,13 +7,20 @@ import { useGetUsers } from './hooks/useGetUsers';
 import { columns } from './components/userColumns';
 import { useState } from 'react';
 
+const { Search } = Input;
+
 const Users = () => {
   const [, setIsOpen] = useAtom(setIsDrawerOpen);
   const [page, setCurrentPage] = useState(1);
-  const { users, isLoadingUsers } = useGetUsers(page);
+  const [search, setSearch] = useState('');
+  const { users, isLoadingUsers } = useGetUsers(page, search);
 
   const handleNextPage = (page: number) => {
     setCurrentPage(page);
+  };
+
+  const handleSearch = (value: string) => {
+    setSearch(value);
   };
 
   return (
@@ -28,6 +35,12 @@ const Users = () => {
           Add User
         </Button>
       </Row>
+      <Search
+        placeholder="Search User"
+        onSearch={handleSearch}
+        enterButton
+        style={{ width: '25%', marginBottom: '1rem' }}
+      />
       <div>
         <Table
           loading={isLoadingUsers}
