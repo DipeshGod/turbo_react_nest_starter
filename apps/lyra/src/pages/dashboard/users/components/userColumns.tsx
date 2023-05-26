@@ -1,5 +1,5 @@
-import { Tag } from 'antd';
 import { ColumnsType } from 'antd/es/table';
+import { Tag } from '../../../../ui/antd';
 
 interface User {
   id: string;

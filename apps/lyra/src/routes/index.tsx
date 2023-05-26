@@ -15,7 +15,7 @@ import { DashboardLayout } from '../ui/layouts';
 import { NotFound } from '../pages/404';
 import { Suspense } from 'react';
 import Mails from '../pages/dashboard/mails';
-import { Spin } from 'antd';
+import { Spin } from '../ui/antd';
 
 const router = createBrowserRouter([
   {

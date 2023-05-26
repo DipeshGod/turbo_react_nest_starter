@@ -1,0 +1,17 @@
+export {
+  Button,
+  Drawer,
+  Form,
+  Input,
+  Row,
+  Select,
+  Space,
+  Spin,
+  Tag,
+  Pagination,
+  Table,
+  Typography,
+  Layout,
+  theme,
+  Menu,
+} from 'antd';

@@ -1,5 +1,12 @@
-import { PlusOutlined } from '@ant-design/icons';
-import { Button, Input, Pagination, Row, Table, Typography } from 'antd';
+import { PlusOutlined } from '../../../ui/icons';
+import {
+  Button,
+  Input,
+  Pagination,
+  Row,
+  Table,
+  Typography,
+} from '../../../ui/antd';
 import { setIsDrawerOpen } from './user.atoms';
 import { useAtom } from 'jotai';
 import UserDrawer from './components/UserDrawer';
