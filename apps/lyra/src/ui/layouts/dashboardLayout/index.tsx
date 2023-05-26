@@ -48,15 +48,7 @@ const DashboardLayout = () => {
             justifyContent: 'center',
           }}
         >
-          <img
-            src="/haddi.jpg"
-            width="50%"
-            height="50%"
-            alt="expertsLogo"
-            style={{
-              borderRadius: '50%',
-            }}
-          />
+          <img src="/haddi.jpg" alt="expertsLogo" width="100%" height="50px" />
         </div>
         <Menu theme="dark" mode="inline">
           <Menu.Item key={'1'} style={{ backgroundColor: 'transparent' }}>
