@@ -83,4 +83,4 @@ const UserDrawer = () => {
   );
 };
 
-export default UserDrawer;
+export { UserDrawer };
