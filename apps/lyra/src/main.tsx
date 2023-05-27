@@ -4,10 +4,14 @@ import 'antd/dist/reset.css';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import CrmRouterProvider from './routes';
 
-if (process.env.NODE_ENV === 'development') {
+const startMockServiceWorker = async () => {
+  // if (process.env.NODE_ENV === 'development') {
+  // }
   const { worker } = await import('../mocks/browser.ts');
   worker.start();
-}
+};
+
+startMockServiceWorker();
 
 const queryClient = new QueryClient();
 
