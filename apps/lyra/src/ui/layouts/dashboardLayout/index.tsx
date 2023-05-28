@@ -11,10 +11,10 @@ import {
   UserAddOutlined,
   UserOutlined,
   HomeOutlined,
-} from '../../icons';
-import { Layout, Menu, Button, theme, Row } from '../../antd';
+} from '@icons/index';
+import { Layout, Menu, Button, theme, Row } from '@antd/index';
 import { Link, NavLink, Outlet } from 'react-router-dom';
-import SiderButton from '../../components/SiderButton';
+import SiderButton from '@components/SiderButton';
 
 const { Header, Sider, Content } = Layout;
 

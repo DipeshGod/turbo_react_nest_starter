@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Input, Pagination, Row, Table } from '../../../../ui/antd';
+import { Input, Pagination, Row, Table } from '@antd/index';
 import { useGetUsers } from '../hooks/useGetUsers';
 import { columns } from './userColumns';
 

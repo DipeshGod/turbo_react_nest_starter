@@ -17,6 +17,12 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
+    "baseUrl": "./",
+    "paths": {
+      "@antd/*": ["src/ui/antd/*"],
+      "@icons/*": ["src/ui/icons/*"],
+      "@components/*":["src/ui/components/*"]
+    }
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]

@@ -7,7 +7,7 @@ import {
   Select,
   Space,
   Spin,
-} from '../../../../ui/antd';
+} from '@antd/index';
 import { useAtom } from 'jotai';
 import { isDrawerOpen, setIsDrawerOpen } from '../user.atoms';
 import { useGetRoles } from '../hooks/useGetRoles';

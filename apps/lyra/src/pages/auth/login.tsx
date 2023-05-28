@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Button } from '../../ui/antd';
+import { Button } from '@antd/index';
 
 const Login = () => {
   const loginUser = () => {
