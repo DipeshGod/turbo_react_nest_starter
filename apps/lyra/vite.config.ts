@@ -17,6 +17,7 @@ export default defineConfig({
       '@antd': path.resolve(__dirname, 'src/ui/antd'),
       '@icons': path.resolve(__dirname, 'src/ui/icons'),
       '@components': path.resolve(__dirname, 'src/ui/components'),
+      '@pages': path.resolve(__dirname, 'src/pages'),
     },
   },
 });

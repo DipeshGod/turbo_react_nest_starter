@@ -6,8 +6,10 @@ const Applications = React.lazy(() => import('./dashboard/applications'));
 const Clients = React.lazy(() => import('./dashboard/clients'));
 const Institutions = React.lazy(() => import('./dashboard/institutions'));
 const Products = React.lazy(() => import('./dashboard/products'));
-const Mail = React.lazy(() => import('./dashboard/mails'));
+const Mails = React.lazy(() => import('./dashboard/mails'));
 const Tasks = React.lazy(() => import('./dashboard/tasks'));
+const NotFound = React.lazy(() => import('./404/index'));
+const Login = React.lazy(() => import('./auth/login'));
 
 export {
   DashboardHome,
@@ -17,6 +19,8 @@ export {
   Clients,
   Institutions,
   Products,
-  Mail,
+  Mails,
   Tasks,
+  NotFound,
+  Login,
 };

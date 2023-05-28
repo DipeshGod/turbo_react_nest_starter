@@ -1,5 +1,4 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { Login } from '../pages/auth/login';
 import { AuthWrapper, PublicWrapper } from './wrapper';
 import {
   DashboardHome,
@@ -10,11 +9,12 @@ import {
   Institutions,
   Products,
   Tasks,
-} from '../pages';
+  Mails,
+  NotFound,
+  Login,
+} from '@pages/index';
 import { DashboardLayout } from '../ui/layouts';
-import { NotFound } from '../pages/404';
 import { Suspense } from 'react';
-import Mails from '../pages/dashboard/mails';
 import { Spin } from '@antd/index';
 
 const router = createBrowserRouter([

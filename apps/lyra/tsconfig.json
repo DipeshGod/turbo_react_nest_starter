@@ -21,7 +21,8 @@
     "paths": {
       "@antd/*": ["src/ui/antd/*"],
       "@icons/*": ["src/ui/icons/*"],
-      "@components/*":["src/ui/components/*"]
+      "@components/*":["src/ui/components/*"],
+      "@pages/*": ["src/pages/*"]
     }
   },
   "include": ["src"],
