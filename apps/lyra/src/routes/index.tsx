@@ -2,7 +2,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { AuthWrapper, PublicWrapper } from './wrapper';
 import {
   DashboardHome,
-  Contacts,
+  ContactDetails,
   Users,
   Applications,
   Clients,
@@ -12,6 +12,7 @@ import {
   Mails,
   NotFound,
   Login,
+  Contacts,
 } from '@pages/index';
 import { DashboardLayout } from '../ui/layouts/dashboard';
 import { Suspense } from 'react';
@@ -39,7 +40,7 @@ const router = createBrowserRouter([
         path: 'contacts',
         element: (
           <Suspense fallback={<PageSpinner />}>
-            <Contacts />
+            <ContactDetails />
           </Suspense>
         ),
         children: [
@@ -48,6 +49,14 @@ const router = createBrowserRouter([
             element: <ContactProfile />,
           },
         ],
+      },
+      {
+        path: 'contacts/list',
+        element: (
+          <Suspense fallback={<PageSpinner />}>
+            <Contacts />
+          </Suspense>
+        ),
       },
       {
         path: '/applications',

@@ -64,7 +64,7 @@ export const DashboardLayout = () => {
             </NavLink>
           </Menu.Item>
           <Menu.Item key={'2'} style={{ backgroundColor: 'transparent' }}>
-            <NavLink to="/contacts/profile">
+            <NavLink to="/contacts/list">
               {({ isActive, isPending }) => (
                 <SiderButton
                   isActive={isActive}
