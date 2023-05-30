@@ -18,7 +18,7 @@ import SiderButton from '@components/SiderButton';
 
 const { Header, Sider, Content } = Layout;
 
-const DashboardLayout = () => {
+export const DashboardLayout = () => {
   const [collapsed, setCollapsed] = useState(false);
 
   const {
@@ -64,7 +64,7 @@ const DashboardLayout = () => {
             </NavLink>
           </Menu.Item>
           <Menu.Item key={'2'} style={{ backgroundColor: 'transparent' }}>
-            <NavLink to="/contacts">
+            <NavLink to="/contacts/profile">
               {({ isActive, isPending }) => (
                 <SiderButton
                   isActive={isActive}
@@ -198,5 +198,3 @@ const DashboardLayout = () => {
     </Layout>
   );
 };
-
-export { DashboardLayout };

@@ -13,9 +13,10 @@ import {
   NotFound,
   Login,
 } from '@pages/index';
-import { DashboardLayout } from '../ui/layouts';
+import { DashboardLayout } from '../ui/layouts/dashboard';
 import { Suspense } from 'react';
 import { PageSpinner } from '@components/PageSpinner';
+import ContactProfile from '../modules/ContactProfile';
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,12 @@ const router = createBrowserRouter([
             <Contacts />
           </Suspense>
         ),
+        children: [
+          {
+            path: '/contacts/profile',
+            element: <ContactProfile />,
+          },
+        ],
       },
       {
         path: '/applications',
