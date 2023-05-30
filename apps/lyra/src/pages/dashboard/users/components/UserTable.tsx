@@ -9,7 +9,7 @@ const UserTable = () => {
   const [page, setCurrentPage] = useState(1);
   const [search, setSearch] = useState('');
 
-  const { users, isLoadingUsers } = useGetUsers(page, search);
+  const { users } = useGetUsers(page, search);
 
   const handleNextPage = (page: number) => {
     setCurrentPage(page);
@@ -30,7 +30,6 @@ const UserTable = () => {
       <div>
         <Table
           scroll={{ x: '100%' }}
-          loading={isLoadingUsers}
           columns={columns}
           dataSource={users?.data.paginatedUsers}
           pagination={false}
