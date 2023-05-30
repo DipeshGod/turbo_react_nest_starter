@@ -14,7 +14,7 @@ import {
   Login,
   Contacts,
 } from '@pages/index';
-import { DashboardLayout } from '../ui/layouts/dashboard';
+import { DashboardLayout } from '../ui/layouts';
 import { Suspense } from 'react';
 import { PageSpinner } from '@components/PageSpinner';
 import ContactProfile from '../modules/ContactProfile';

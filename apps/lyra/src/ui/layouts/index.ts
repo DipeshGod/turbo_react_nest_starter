@@ -1,1 +1,1 @@
-export * from './dashboardLayout'
+export * from './dashboard';
