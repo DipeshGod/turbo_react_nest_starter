@@ -22,7 +22,8 @@
       "@antd/*": ["src/ui/antd/*"],
       "@icons/*": ["src/ui/icons/*"],
       "@components/*":["src/ui/components/*"],
-      "@pages/*": ["src/pages/*"]
+      "@pages/*": ["src/pages/*"],
+      "@api/*": ["src/lib/api/*"]
     }
   },
   "include": ["src"],

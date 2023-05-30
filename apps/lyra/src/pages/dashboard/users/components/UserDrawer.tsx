@@ -51,7 +51,7 @@ const UserDrawer = () => {
 
               <Form.Item label="Role" name="role">
                 <Select placeholder="Select Role" defaultValue="2">
-                  {roles?.map((role: any) => (
+                  {roles?.data.map((role: any) => (
                     <Select.Option key={role.id} value={role.id}>
                       {role.name}
                     </Select.Option>
@@ -60,7 +60,7 @@ const UserDrawer = () => {
               </Form.Item>
               <Form.Item label="Branch" name="branch">
                 <Select showSearch placeholder="Select Branch">
-                  {branches?.map((branch: any) => (
+                  {branches?.data.map((branch: any) => (
                     <Select.Option key={branch.id} value={branch.id}>
                       {branch.name}
                     </Select.Option>
