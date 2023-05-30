@@ -15,7 +15,7 @@ import {
 } from '@pages/index';
 import { DashboardLayout } from '../ui/layouts';
 import { Suspense } from 'react';
-import { Spin } from '@antd/index';
+import { PageSpinner } from '@components/PageSpinner';
 
 const router = createBrowserRouter([
   {
@@ -29,7 +29,7 @@ const router = createBrowserRouter([
       {
         index: true,
         element: (
-          <Suspense fallback={<Spin />}>
+          <Suspense fallback={<PageSpinner />}>
             <DashboardHome />
           </Suspense>
         ),
@@ -37,7 +37,7 @@ const router = createBrowserRouter([
       {
         path: 'contacts',
         element: (
-          <Suspense fallback={<Spin />}>
+          <Suspense fallback={<PageSpinner />}>
             <Contacts />
           </Suspense>
         ),
@@ -45,7 +45,7 @@ const router = createBrowserRouter([
       {
         path: '/applications',
         element: (
-          <Suspense fallback={<Spin />}>
+          <Suspense fallback={<PageSpinner />}>
             <Applications />
           </Suspense>
         ),
@@ -53,7 +53,7 @@ const router = createBrowserRouter([
       {
         path: '/clients',
         element: (
-          <Suspense fallback={<Spin />}>
+          <Suspense fallback={<PageSpinner />}>
             <Clients />
           </Suspense>
         ),
@@ -61,7 +61,7 @@ const router = createBrowserRouter([
       {
         path: '/institutions',
         element: (
-          <Suspense fallback={<Spin />}>
+          <Suspense fallback={<PageSpinner />}>
             <Institutions />
           </Suspense>
         ),
@@ -69,7 +69,7 @@ const router = createBrowserRouter([
       {
         path: '/products',
         element: (
-          <Suspense fallback={<Spin />}>
+          <Suspense fallback={<PageSpinner />}>
             <Products />
           </Suspense>
         ),
@@ -77,7 +77,7 @@ const router = createBrowserRouter([
       {
         path: '/mails',
         element: (
-          <Suspense fallback={<Spin />}>
+          <Suspense fallback={<PageSpinner />}>
             <Mails />
           </Suspense>
         ),
@@ -85,7 +85,7 @@ const router = createBrowserRouter([
       {
         path: '/tasks',
         element: (
-          <Suspense fallback={<Spin />}>
+          <Suspense fallback={<PageSpinner />}>
             <Tasks />
           </Suspense>
         ),
@@ -93,21 +93,7 @@ const router = createBrowserRouter([
       {
         path: 'users',
         element: (
-          <Suspense
-            fallback={
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  height: '100%',
-                  width: '100%',
-                }}
-              >
-                <Spin />
-              </div>
-            }
-          >
+          <Suspense fallback={<PageSpinner />}>
             <Users />
           </Suspense>
         ),
