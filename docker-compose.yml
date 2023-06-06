@@ -1,0 +1,27 @@
+version: "3.8"
+services:
+  postgres_temp:
+    image: postgres:14
+    restart: always
+    container_name: 'postgres_db'
+    environment:
+      POSTGRES_DB: 'odin'
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASSWORD: 'odin'
+      POSTGRES_HOST_AUTH_METHOD: 'trust'
+    volumes:
+      - ./postgres-dev-data:/var/lib/postgresql/data
+    ports:
+      - 3333:5432
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    restart: always
+    container_name: 'pgadmin'
+    environment:
+      PGADMIN_DEFAULT_EMAIL: 'admin@test.com'
+      PGADMIN_DEFAULT_PASSWORD: 'admin123'
+    volumes:
+      - ./pgadmin-dev-data:/var/lib/pgadmin
+    ports:
+      - 4444:80
