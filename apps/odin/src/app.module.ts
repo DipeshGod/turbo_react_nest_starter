@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './user/user.module';
+import { CompanyrModule } from './company/company.module';
 
 @Module({
   imports: [
@@ -19,11 +20,12 @@ import { UserModule } from './user/user.module';
         database: configService.get('DB_NAME'),
         entities: [],
         autoLoadEntities: true,
-        synchronize: false,
+        synchronize: true,
       }),
       inject: [ConfigService],
     }),
     UserModule,
+    CompanyrModule,
   ],
 })
 export class AppModule {}
