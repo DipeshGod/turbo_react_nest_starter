@@ -2,7 +2,9 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './user/user.module';
-import { CompanyrModule } from './company/company.module';
+import { CompanyModule } from './company/company.module';
+import { Company } from './company/company.entity';
+import { User } from './user/user.entity';
 
 @Module({
   imports: [
@@ -18,14 +20,14 @@ import { CompanyrModule } from './company/company.module';
         username: configService.get('DB_USERNAME'),
         password: configService.get('DB_PASSWORD'),
         database: configService.get('DB_NAME'),
-        entities: [],
+        entities: [Company, User],
         autoLoadEntities: true,
-        synchronize: true,
+        synchronize: false,
       }),
       inject: [ConfigService],
     }),
     UserModule,
-    CompanyrModule,
+    CompanyModule,
   ],
 })
 export class AppModule {}
