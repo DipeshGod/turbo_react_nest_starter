@@ -15,6 +15,6 @@ export class User {
   @Column({ default: true })
   isActive: boolean;
 
-  // @ManyToOne(() => Company, (company) => company.users)
-  // company: Company;
+  @ManyToOne(() => Company, (company) => company.users)
+  company: Company;
 }
